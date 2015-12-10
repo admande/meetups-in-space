@@ -1,0 +1,23 @@
+<h1>Meetups</h1>
+
+<form action="/meetups/new" method="post">
+  <div class="columns medium-4">
+    <input class="string required" placeholder="Name" type="text" name="name" id="name">
+  </div>
+  <div class="columns medium-4">
+    <input class="string required" placeholder="Location" type="text" name="location" id="location">
+  </div>
+  <div class="columns medium-4">
+    <input class="string required" placeholder="Details" type="text" name="details" id="details">
+  </div>
+
+
+  <% if @errors.nil? %>
+  <% else @errors.each do |error| %>
+      <p><%= error %>
+      <% end %>
+  <% end %>
+  <div class="columns text-left">
+    <input type="submit" id="submit"></div>
+  </div>
+</form>
