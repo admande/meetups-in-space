@@ -42,3 +42,7 @@ a:visited {
 .username {
   text-align: center;
 }
+
+form .string {
+  color: black;
+}

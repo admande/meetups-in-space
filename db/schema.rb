@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(version: 20151208165457) do
     t.integer "meetup_id", null: false
   end
 
+  add_index "memberships", ["user_id", "meetup_id"], name: "index_memberships_on_user_id_and_meetup_id", unique: true, using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "provider",   null: false
     t.string   "uid",        null: false

@@ -57,7 +57,6 @@ post '/meetups/new' do
   else
     @meetup.valid?
     @errors = @meetup.errors.full_messages
-    flash[:notice] = "Meetup Not Created"
     erb :'meetups/new'
   end
 end
@@ -66,6 +65,12 @@ end
 get '/meetups/:id' do
   @meetup = Meetup.where(id: params[:id]).first
   @users = @meetup.users
+  @flag = false
+  if Membership.where(meetup_id: @meetup, user_id: session[:user_id]).empty?
+    @flag = false
+  else
+    @flag = true
+  end
   erb :'meetups/show'
 end
 

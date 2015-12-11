@@ -1,19 +1,22 @@
-<% require "pry" %>
+
 <h1> <%= @meetup.name %></h1>
 <h3><%= @meetup.details %></h3>
 <h3><%= @meetup.location %></h3>
 <br><br>
+<% if @flag == false %>
 <form action="/meetups/<%= @meetup.id %>" method="post">
-<input type="submit" id="Join Meetup" name="Join Meetup" value="Join Meetup!"></input>
+  <input type="submit" id="submit" value="Join Meetup"></input>
 </form>
+<% end %>
 <br><br>
 <h4>Creator: <%= @meetup.creator.username %></h4>
 <h4>MEETUPPERS</h4>
 <ul>
-<% @users.each do |user| %>
-<ul class="username">
+<% unless @users.empty? %>
+  <ul class="username">
+  <% @users.each do |user| %>
     <img src="<%= user.avatar_url %>">
     <li> <%= user.username %> </li>
-  </ul>
   <% end %>
   </ul>
+<% end %>

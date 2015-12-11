@@ -1,14 +1,17 @@
-<h1>Meetups</h1>
+<h1>Create a new meetup</h1>
 
 <form action="/meetups/new" method="post">
   <div class="columns medium-4">
-    <input class="string required" placeholder="Name" type="text" name="name" id="name">
+    <label for="name">Choose a Meetup Name</label>
+    <input class="string required" placeholder="Name" type="text" name="name" id="name" value="<%= @name %>">
   </div>
   <div class="columns medium-4">
-    <input class="string required" placeholder="Location" type="text" name="location" id="location">
+    <label for="location">Choose a Meetup Location</label>
+    <input class="string required" placeholder="Location" type="text" name="location" id="location" value="<%= @location %>">
   </div>
   <div class="columns medium-4">
-    <input class="string required" placeholder="Details" type="text" name="details" id="details">
+    <label for="details">Describe your Meetup</label>
+    <input class="string required" placeholder="Details" type="text" name="details" id="details" value="<%= @details %>">
   </div>
 
 
